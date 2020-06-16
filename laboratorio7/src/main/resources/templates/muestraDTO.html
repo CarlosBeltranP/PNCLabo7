@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado</title>
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="table-container" align="center">
+		<h1>ResultadoDTO</h1>
+		<br/>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante, row:${estudiantes}">
+					<td th:text="${estudiante.nombre}">Nombre</td>
+					<td th:text="${estudiante.apellido}">Apellido</td>     
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<div class="buttom-container">
+			<a th:href="@{/listado}">
+				<input class="back-buttom" type="submit"  value="Home" >
+			</a>
+			
+		</div>
+	</div>	
+</body>
+</html>

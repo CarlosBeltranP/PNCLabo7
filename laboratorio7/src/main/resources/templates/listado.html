@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+<meta charset="ISO-8859-1">
+<title>Listado</title>
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="table-container" align="center">
+		<h1>Estudiantes</h1>
+		<br/>
+		<!--<form th:action="@{/mostrarDTO}" method="post">
+			<label>Mostrar DTO </label> 
+			<input class="back-buttom" type="submit" value="DTO" >
+		</form>  -->
+		<form th:action="@{/filtrar}" method="post" >
+			<input class="filt-buttom" type="submit" value="Buscar" >
+			<input class="imput-style" type="text" name="nombre" placeholder="Nombre">
+	
+		</form><br>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Carnet</th>
+					<th>Carrera</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante, row:${estudiantes}">
+				<td th:text="${estudiante.codigoEstudiante}">Codigo</td>
+					<td th:text="${estudiante.nombre}">Nombre</td>
+					<td th:text="${estudiante.apellido}">Apellido</td>
+					<td th:text="${estudiante.carnet}">Carnet</td>
+					<td th:text="${estudiante.carrera}">Carrera</td>
+					<td class="actions">
+						<!--<a th:href="@{/formBuscar/} + ${estudiante.codigoEstudiante}" >
+							<button class="search-buttom" type="submit" name="action" value="buscar">Ver</button>
+						</a>  -->
+						<a th:href="@{/formEditar/} + ${estudiante.codigoEstudiante}" >
+							<button class="edit-buttom" type="submit" name="action" value="editar">Editar</button>
+						</a>
+						<a th:href="@{/eliminar/} + ${estudiante.codigoEstudiante}">
+							<button class="delete-buttom" type="submit" name="action" value="borrar">Eliminar</button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<br>
+		<div class="buttom-container">
+			<a th:href="@{/formGuardar}" style="text-decoration: none">
+				<input class="add2-buttom" type="submit"  value="Agregar estudiante" >
+			</a>
+			<a th:href="@{/listado}">
+		  		<input class="back-buttom" type="submit" value="Home" >
+			</a>	
+		</div>
+	</div>	
+</body>
+</html>

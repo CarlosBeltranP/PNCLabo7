@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th=http://www.thymeleaf.org>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registro</title>
+<link href="css/style.css" rel="stylesheet">
+<style>
+body {
+	margin: auto;
+	text-align: center;
+	background-color: #F1F1F1;
+	  font-family: "Open Sans", sans-serif;
+  		line-height: 1.25;
+}
+
+h1 {
+	font-family: "Open Sans", sans-serif;
+	margin-top: 50px;
+	font-size: 22px;
+}
+
+.form-container {
+	width: 350px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	padding: 50px 50px 50px 50px;
+	box-shadow: 4px 4px 4px #E3E3E3;
+	text-align: left;
+	border: 0;
+	font-family: "Open Sans", sans-serif;
+	font-size: 14px;
+}
+
+.form-container input:focus {
+	outline: none !important;
+	outline-width: 0 !important;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.form-container input {
+	margin: 10px 0 10px 0;
+	border-bottom: 1px solid #E2E2E2;
+	width: 100%;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 1px solid #E2E2E2;
+	width: 100%;
+	height: 20px;
+}
+
+.form-container label {
+	font-weight: bold;
+}
+
+.form-container span {
+	margin-bottom: 20px;
+}
+
+.buttom-container {
+	text-align: center;
+}
+
+.buttom-container .add-buttom {
+	margin: auto;
+	width: 200px;
+	height: 40px;
+	padding: 10px; border : 0;
+	background-color: #27D300;
+	color: #FFFFFF;
+	cursor: pointer;
+	border: 0;
+}
+
+.buttom-container .back-buttom {
+	margin: auto;
+	width: 200px;
+	height: 40px;
+	padding: 10px; border : 0;
+	background-color: #079CFF;
+	color: #FFFFFF;
+	cursor: pointer;
+	border: 0;
+}
+
+.buttom-container .add2-buttom {
+	margin: auto;
+	width: 200px;
+	height: 40px;
+	padding: 10px; border : 0;
+	background-color: #27D300;
+	color: #FFFFFF;
+	cursor: pointer;
+	border: 0;
+}
+
+.main-container {
+	margin: 100px;
+}
+
+.container {
+	width: 350px;
+	margin: auto;
+	background-color: #FFFFFF;
+	padding: 50px 50px 50px 50px;
+	text-align: center;
+	border: 0;
+	border-radius: 15px;
+	font-family: "Open Sans", sans-serif;
+	font-size: 14px;
+	box-shadow: 4px 4px 4px #E3E3E3;
+}
+
+.ok-buttom {
+	margin: 20px;
+	width: 40%;
+	height: 40px;
+	border: 0;
+	border-radius: 6px;
+	background-color: #008CBF;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.container a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+	<h1>Actualizar estudiante</h1>
+		<div class="form-container">
+			<form th:action="@{/guardar}" th:object="${estudiante}" method="post">
+			
+			    <input type="hidden" th:field="*{codigoEstudiante}" placeholder=" "><br> 
+	
+		    	<label>Nombre:</label><br>
+			    <input type="text" th:field="*{nombre}" placeholder=" "><br> 
+			    <span th:errors="*{nombre}" style="color: #E81505"></span><br><br>
+		
+			    <label>Apellido:</label><br>
+			    <input type="text" th:field="*{apellido}" placeholder=" "> <br>
+			    <span th:errors="*{apellido}" style="color: #E81505"></span><br><br>
+		
+			    <label>Carnet:</label><br>
+			    <input type="number" th:field="*{carnet}" placeholder=" "><br> 
+			    <span th:errors="*{carnet}" style="color: #E81505"></span><br><br>
+		
+			    <label>Carrera:</label><br>
+			    <input type="text" th:field="*{carrera}" placeholder=" "> <br>
+			    <span th:errors="*{carrera}" style="color: #E81505"></span><br><br>
+				
+				<div class="buttom-container">
+					<input class="add-buttom" type="submit"  value="Actualizar">
+			    </div>
+			</form>
+			<br/>
+			<div class="buttom-container">
+				<a th:href="@{/listado}">
+					<input class="back-buttom" type="submit"  value="Listado de estudiantes" >
+				</a>
+			 </div>
+		</div>
+</body>
+</html>
